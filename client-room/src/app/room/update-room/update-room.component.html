@@ -1,5 +1,5 @@
 <h3>Update Room</h3>
-<div style="width: 400px;">
+<div style="width: 400px;" *ngIf="room.id; else semRegistro">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name</label>
@@ -20,7 +20,15 @@
       <label for="name">end Hour</label>
       <input type="text" class="form-control" id="endHour" required [(ngModel)]="room.endHour" name="endHour">
     </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
+    <br>
+    <button type="submit" class="btn btn-success">Save</button>&nbsp;
+    <button (click)="list()" class="btn btn-primary">Back to Room List</button>
   </form>
 </div>
+
+<ng-template #semRegistro>
+  <div class="alert alert-danger main-div">
+    <span>Room not found!</span>
+  </div>
+  <button (click)="list()" class="btn btn-primary">Back to Room List</button>
+</ng-template>
