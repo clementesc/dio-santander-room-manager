@@ -1,27 +1,27 @@
 <h3>Update Room</h3>
 <div style="width: 400px;" *ngIf="room.id; else semRegistro">
-  <form (ngSubmit)="onSubmit()">
+  <form #roomForm="ngForm">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" required [(ngModel)]="room.name" name="name">
     </div>
 
     <div class="form-group">
-      <label for="name">date</label>
+      <label for="name">Date</label>
       <input type="text" class="form-control" id="date" required [(ngModel)]="room.date" name="date">
     </div>
 
     <div class="form-group">
-      <label for="name">start Hour</label>
+      <label for="name">Start Hour</label>
       <input type="text" class="form-control" id="startHour" required [(ngModel)]="room.startHour" name="startHour">
     </div>
 
     <div class="form-group">
-      <label for="name">end Hour</label>
+      <label for="name">End Hour</label>
       <input type="text" class="form-control" id="endHour" required [(ngModel)]="room.endHour" name="endHour">
     </div>
     <br>
-    <button type="submit" class="btn btn-success">Save</button>&nbsp;
+    <button (click)="save()" [disabled]="roomForm.invalid" class="btn btn-success">Save</button>&nbsp;
     <button (click)="list()" class="btn btn-primary">Back to Room List</button>
   </form>
 </div>

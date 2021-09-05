@@ -13,8 +13,9 @@ export class RoomDetailsComponent implements OnInit {
   id: number;
   room: Room;
 
-  constructor(private route: ActivatedRoute,private router: Router,
-    private roomService: RoomService) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private roomService: RoomService) { }
 
   ngOnInit() {
     this.room = new Room();
@@ -22,10 +23,7 @@ export class RoomDetailsComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     
     this.roomService.getRoom(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.room = data;
-      }, error => console.log(error));
+      .subscribe(data => this.room = data, error => console.log('Error', error));
   }
 
   list(){

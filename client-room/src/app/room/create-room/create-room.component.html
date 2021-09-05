@@ -1,6 +1,6 @@
 <h3>Create Room</h3>
 <div style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form #roomForm="ngForm">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" required [(ngModel)]="room.name" name="name">
@@ -17,11 +17,11 @@
     </div>
 
     <div class="form-group">
-        <label for="name">End Hour</label>
-        <input type="text" class="form-control" id="endHour" required [(ngModel)]="room.endHour" name="endHour">
+      <label for="name">End Hour</label>
+      <input type="text" class="form-control" id="endHour" required [(ngModel)]="room.endHour" name="endHour">
     </div>
     <br>
-    <button type="submit" class="btn btn-success">Save</button>&nbsp;
+    <button (click)="save()" [disabled]="roomForm.invalid" class="btn btn-success">Save</button>&nbsp;
     <button (click)="list()" class="btn btn-primary">Back to Room List</button>
   </form>
 </div>

@@ -12,10 +12,10 @@ export class UpdateRoomComponent implements OnInit {
 
   id: number;
   room: Room;
-  submitted = false;
 
-  constructor(private route: ActivatedRoute,private router: Router,
-    private roomService: RoomService) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private roomService: RoomService) { }
 
   ngOnInit() {
     this.room = new Room();
@@ -23,23 +23,16 @@ export class UpdateRoomComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     
     this.roomService.getRoom(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.room = data;
-      }, error => console.log(error));
+      .subscribe(data => this.room = data, error => console.log('Error', error));
   }
 
-  updateRoom() {
+  save() {
     this.roomService.updateRoom(this.id, this.room)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => console.log('Saved with sucess', data), error => console.log('Error', error));
     this.room = new Room();
     this.list();
   }
-
-  onSubmit() {
-    this.updateRoom();    
-  }
-
+  
   list() {
     this.router.navigate(['/rooms']);
   }

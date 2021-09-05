@@ -11,29 +11,19 @@ import { Room } from '../../shared/models/room';
 export class CreateRoomComponent implements OnInit {
 
   room: Room = new Room();
-  submitted = false;
 
   constructor(private roomService: RoomService,
-    private router: Router) { }
+              private router: Router
+              ) { }
 
   ngOnInit() {
   }
 
-  newRoom(): void {
-    this.submitted = false;
-    this.room = new Room();
-  }
-
   save() {
     this.roomService.createRoom(this.room)
-      .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => console.log('Saved with sucess', data), error => console.log('Error', error));
     this.room = new Room();
     this.list();
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.save();    
   }
 
   list() {
