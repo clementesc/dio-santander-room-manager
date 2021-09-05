@@ -7,10 +7,10 @@ Development for didactic purposes, not representing a suitable format for produc
 
 The Project that is part of Santander Bootcamp Fullstack Developer, promoted by [Santander](https://app.becas-santander.com/) and [Digital Innovation One](https://web.digitalinnovation.one/). Classes presented by [Kamila Santos](https://github.com/Kamilahsantos).
 
-## Back-end
+## Back-end (meeting-room)
 Spring boot REST API.
 
-To start the back-end server run: `mvn spring-boot:run`
+To start the back-end server run `mvn spring-boot:run` into `meeting-room` directory.
 
 With that a server will be started at url http://localhost:8080/api/v1. After the startup it will be possible to make http requests on that.
 
@@ -18,9 +18,9 @@ For data load, run *HTTP POST* on `http://localhost:8080/api/v1/rooms`
 
 For check the load, run *HTTP GET* on `http://localhost:8080/api/v1/rooms`
 
-## Front-end
+## Front-end (client-room)
 Angular 12 App.
-To start the app run: `ng serve`
+To start the app run: `ng serve` into `client-room` directory.
 
 With that a server will be started at url http://localhost:4200/
 
